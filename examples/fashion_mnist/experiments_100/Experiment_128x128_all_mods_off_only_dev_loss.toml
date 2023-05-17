@@ -1,0 +1,46 @@
+[experiment]
+project           = "EasingColorShifts.jl"
+name              = "fashion_mnist"
+savedir           = "output/"
+rngseed           = 123
+logging           = false
+nogpu             = false
+
+[data]
+batchsize         = 16
+tilesize          = 128
+
+[model]
+noised_channels   = 1
+dropout_p         = 0.0
+sigma_max         = 200.0
+sigma_min         = 1e-2
+mean_bypass       = false
+shift_input       = false
+shift_output      = false
+scale_mean_bypass = false
+gnorm             = false
+
+[optimizer]
+learning_rate     = 2e-4
+epsilon           = 1e-8
+beta_1            = 0.9
+beta_2            = 0.999
+gradnorm          = 1.0
+ema_rate          = 0.999
+nwarmup           = 5000
+
+[training]
+nepochs           = 100
+freq_chckpt       = 80
+
+[loss]
+avg_weight        = 0
+dev_weight        = 1
+
+[sampling]
+nsteps            = 1000
+nsamples          = 100
+nimages           = 25
+sampler           = "euler"
+tilesize          = 128
